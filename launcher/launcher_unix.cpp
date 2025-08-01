@@ -94,8 +94,8 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    modulePath = "csgo_gc/" GC_LIB_DIR "/"
-                 "csgo_gc" GC_LIB_EXTENSION;
+    modulePath = "bin/" GC_LIB_DIR "/"
+                 "bun" GC_LIB_EXTENSION;
     InstallGC_t InstallGC = (InstallGC_t)LoadModuleAndFindSymbol(modulePath, "InstallGC");
     if (!InstallGC)
     {
