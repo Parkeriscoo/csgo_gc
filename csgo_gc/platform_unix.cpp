@@ -21,9 +21,6 @@ static ConColorMsg_t s_ConColorMsg;
 
 void Initialize()
 {
-    // remove the old log file
-    unlink("gc_log.txt");
-
 #if defined(__APPLE__)
     void *tier0 = dlopen("libtier0.dylib", RTLD_LAZY);
 #else
@@ -57,10 +54,6 @@ void Print(const char *format, ...)
         uint8_t color[4] = { 0, 255, 128, 255 };
         s_ConColorMsg(color, "[GC] %s", buffer);
     }
-
-    FILE *f = fopen("gc_log.txt", "a");
-    fprintf(f, "%s", buffer);
-    fclose(f);
 }
 
 void Error(const char *format, ...)
@@ -255,7 +248,7 @@ bool PatchGraffitiPublicKey(std::string_view moduleName, const void *original, c
 {
     std::string actualModuleName;
 
-#if defined(__APPLE)
+#if defined(__APPLE__)
     actualModuleName.assign(moduleName);
     actualModuleName.append(".dylib");
 
