@@ -1542,15 +1542,14 @@ static void ShutdownSteamAPI(bool dedicated)
 
 void SteamHookInstall(bool dedicated)
 {
-    Platform::EnsureEnvVarSet("SteamAppId", "730");
+    Platform::EnsureEnvVarSet("SteamAppId", "480");
 
     // this is bit of a clusterfuck
     if (!InitializeSteamAPI(dedicated))
     {
         Platform::Error("Steam initialization failed. Please try the following steps:\n"
                         "- Ensure that Steam is running.\n"
-                        "- Restart Steam and try again.\n"
-                        "- Verify that you have launched CS:GO or CS2 through Steam at least once.");
+                        "- Restart Steam and try again.");
     }
 
     uint8_t steamClientPath[4096]; // NOTE: text encoding stored depends on the platform (wchar_t on windows)
