@@ -1542,7 +1542,7 @@ static void ShutdownSteamAPI(bool dedicated)
 
 void SteamHookInstall(bool dedicated)
 {
-    Platform::EnsureEnvVarSet("SteamAppId", "480");
+    Platform::EnsureEnvVarSet("SteamAppId", "730");
 
     // this is bit of a clusterfuck
     if (!InitializeSteamAPI(dedicated))
