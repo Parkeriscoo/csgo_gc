@@ -95,7 +95,7 @@ int main(int argc, char **argv)
     }
 
     modulePath = "bin/" GC_LIB_DIR "/"
-                 "bun" GC_LIB_EXTENSION;
+                 "bin" GC_LIB_EXTENSION;
     InstallGC_t InstallGC = (InstallGC_t)LoadModuleAndFindSymbol(modulePath, "InstallGC");
     if (!InstallGC)
     {
