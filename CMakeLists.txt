@@ -78,13 +78,11 @@ FetchContent_MakeAvailable(protobuf)
 option(CRYPTOPP_BUILD_TESTING "Build library tests" OFF)
 option(CRYPTOPP_INSTALL "Generate the install target for this project." OFF)
 
-FetchContent_Declare(
-    cryptopp
-    GIT_REPOSITORY https://github.com/weidai11/cryptopp.git
-    GIT_TAG CRYPTOPP_8_9_0
-)
+FetchContent_Declare(cryptopp-cmake
+	GIT_REPOSITORY https://github.com/abdes/cryptopp-cmake
+	GIT_SHALLOW TRUE)
 
-FetchContent_MakeAvailable(cryptopp)
+FetchContent_MakeAvailable(cryptopp-cmake)
 
 if (MSVC)
     # shut the fuck up
@@ -99,10 +97,8 @@ option(FUNCHOOK_BUILD_SHARED "build shared library" OFF)
 option(FUNCHOOK_BUILD_TESTS "Build tests" OFF)
 option(FUNCHOOK_INSTALL "Install Funchook" OFF)
 
-FetchContent_Declare(
-    funchook
-    GIT_REPOSITORY https://github.com/kubo/funchook.git
-    GIT_TAG 3cd8e786ad13ef6bb39b3fae90c4d429b57085f5
-)
+FetchContent_Declare(funchook
+	GIT_REPOSITORY https://github.com/kubo/funchook
+	GIT_SHALLOW TRUE)
 
 FetchContent_MakeAvailable(funchook)
