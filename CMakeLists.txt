@@ -99,9 +99,10 @@ option(FUNCHOOK_BUILD_SHARED "build shared library" OFF)
 option(FUNCHOOK_BUILD_TESTS "Build tests" OFF)
 option(FUNCHOOK_INSTALL "Install Funchook" OFF)
 
-FetchContent_Declare(funchook
-	GIT_REPOSITORY https://github.com/kubo/funchook
-	GIT_TAG 2aca28efeb2a3b00c696e1c3e05b44581e118580
-	GIT_SHALLOW TRUE)
+FetchContent_Declare(
+    funchook
+    GIT_REPOSITORY https://github.com/kubo/funchook.git
+    GIT_TAG v1.1.5
+)
 
 FetchContent_MakeAvailable(funchook)
