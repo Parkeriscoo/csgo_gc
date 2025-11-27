@@ -102,7 +102,7 @@ option(FUNCHOOK_INSTALL "Install Funchook" OFF)
 FetchContent_Declare(
     funchook
     GIT_REPOSITORY https://github.com/kubo/funchook.git
-    GIT_TAG v1.1.5
+    GIT_TAG 3cd8e786ad13ef6bb39b3fae90c4d429b57085f5
 )
 
 FetchContent_MakeAvailable(funchook)
