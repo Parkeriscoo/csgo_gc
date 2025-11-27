@@ -6,7 +6,7 @@
 #include "keyvalue.h"
 #include "random.h"
 
-constexpr const char *InventoryFilePath = "bin/inventory.txt";
+constexpr const char *InventoryFilePath = "csgo_gc/inventory.txt";
 
 // mikkotodo actual versioning
 constexpr uint64_t InventoryVersion = 7523377975160828514;
@@ -413,44 +413,11 @@ bool Inventory::EquipItem(uint64_t itemId, uint32_t classId, uint32_t slotId, CM
             return false; // didn't modify anything
         }
 
-        // ============================================================
-        //                CUSTOM KNIFE WHITELIST PATCH
-        // ============================================================
-
-        uint32_t defIndexItem = it->second.def_index();
-
-        // List of real knife def_index values (add/remove any)
-        static const std::unordered_set<uint32_t> kKnifeWhitelist = {
-            500,503,505,506,507,508,509,512,
-            514,515,516,517,518,519,520,521
-        };
-
-        // If this is a KNIFE — allow it to equip even if Valve GC wouldn’t
-        if (kKnifeWhitelist.count(defIndexItem))
-        {
-            Platform::Print("KNIFE WHITELIST: Allowing knife def %u to equip\n", defIndexItem);
-
-            // Unequip whatever is in that slot
-            UnequipItem(classId, slotId, update);
-
-            CSOEconItem &item = it->second;
-
-            CSOEconItemEquipped *equippedState = item.add_equipped_state();
-            equippedState->set_new_class(classId);
-            equippedState->set_new_slot(slotId);
-
-            AddToMultipleObjects(update, item);
-            return true;
-        }
-
-        // ============================================================
-        //             END CUSTOM KNIFE WHITELIST PATCH
-        // ============================================================
-
-        // NORMAL EQUIP LOGIC (unchanged from original)
+        // if an item is equipped in this slot, unequip it first
         UnequipItem(classId, slotId, update);
 
-        Platform::Print("EquipItem %llu class %d slot %d\n", itemId, classId, slotId);
+        Platform::Print("EquipItem %llu class %d slot %d\n", itemId, classId,
+            slotId);
 
         CSOEconItem &item = it->second;
 
