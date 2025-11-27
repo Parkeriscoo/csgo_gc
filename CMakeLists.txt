@@ -78,12 +78,13 @@ FetchContent_MakeAvailable(protobuf)
 option(CRYPTOPP_BUILD_TESTING "Build library tests" OFF)
 option(CRYPTOPP_INSTALL "Generate the install target for this project." OFF)
 
-FetchContent_Declare(cryptopp-cmake
-	GIT_REPOSITORY https://github.com/abdes/cryptopp-cmake
-	GIT_TAG edb9a71bed2b663c996fded6a104714e05a113f9
-	GIT_SHALLOW TRUE)
+FetchContent_Declare(
+    cryptopp
+    GIT_REPOSITORY https://github.com/weidai11/cryptopp.git
+    GIT_TAG CRYPTOPP_8_9_0
+)
 
-FetchContent_MakeAvailable(cryptopp-cmake)
+FetchContent_MakeAvailable(cryptopp)
 
 if (MSVC)
     # shut the fuck up
