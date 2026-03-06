@@ -21,9 +21,6 @@ static ConColorMsg_t s_ConColorMsg;
 
 void Initialize()
 {
-    // remove the old log file
-    unlink("gc_log.txt");
-
 #if defined(__APPLE__)
     void *tier0 = dlopen("libtier0.dylib", RTLD_LAZY);
 #else
