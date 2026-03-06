@@ -58,7 +58,7 @@ static void ErrorMessageBox(const wchar_t *format, ...)
     _vsnwprintf_s(buffer, std::size(buffer), format, ap);
     va_end(ap);
 
-    MessageBoxW(nullptr, buffer, L"bin", MB_OK | MB_ICONERROR);
+    MessageBoxW(nullptr, buffer, L"csgo_gc", MB_OK | MB_ICONERROR);
 }
 
 static const wchar_t *LastErrorString()
@@ -154,8 +154,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         return 1;
     }
 
-    _snwprintf_s(modulePath, std::size(modulePath), L"%ls\\csgo_gc\\" GC_LIB_DIR "\\"
-                                                    "csgo_gc" GC_LIB_EXTENSION,
+    _snwprintf_s(modulePath, std::size(modulePath), L"%ls\\bin\\" GC_LIB_DIR "\\"
+                                                    "bin" GC_LIB_EXTENSION,
         baseDir);
     InstallGC_t InstallGC = (InstallGC_t)LoadModuleAndFindSymbol(modulePath, "InstallGC");
     if (!InstallGC)
