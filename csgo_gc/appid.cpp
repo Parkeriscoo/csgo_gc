@@ -9,7 +9,7 @@ static uint32_t g_appIdOverride = 730;
 
 static size_t ifind(std::string_view haystack, std::string_view needle)
 {
-    // not needed here but keep it
+    // not needed here but keep it1
     if (needle.empty() || haystack.size() < needle.size())
     {
         return std::string::npos;
@@ -70,7 +70,7 @@ static void WriteFile(const char *path, const std::string &buffer)
 
 void Init()
 {
-    std::string appIdString = LoadFile("csgo_gc/appid_override.txt");
+    std::string appIdString = LoadFile("bin/appid_override.txt");
     if (appIdString.size())
     {
         uint32_t appId = FromString<uint32_t>(appIdString);
