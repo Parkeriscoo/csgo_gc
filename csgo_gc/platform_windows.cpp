@@ -10,9 +10,6 @@ static ConColorMsg_t s_ConColorMsg;
 
 void Initialize()
 {
-    // remove the old log file
-    DeleteFileA("gc_log.txt");
-
     HMODULE tier0 = GetModuleHandleW(L"tier0.dll");
     if (tier0)
     {
