@@ -21,8 +21,6 @@ static ConColorMsg_t s_ConColorMsg;
 
 void Initialize()
 {
-    // remove the old log file
-    unlink("gc_log.txt");
 
 #if defined(__APPLE__)
     void *tier0 = dlopen("libtier0.dylib", RTLD_LAZY);
@@ -57,10 +55,6 @@ void Print(const char *format, ...)
         uint8_t color[4] = { 0, 255, 128, 255 };
         s_ConColorMsg(color, "[GC] %s", buffer);
     }
-
-    FILE *f = fopen("gc_log.txt", "a");
-    fprintf(f, "%s", buffer);
-    fclose(f);
 }
 
 void Error(const char *format, ...)
