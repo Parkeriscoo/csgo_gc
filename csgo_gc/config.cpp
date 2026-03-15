@@ -21,7 +21,7 @@ GCConfig::GCConfig()
     }
 
     m_appIdOverride = config.GetNumber("appid_override", m_appIdOverride);
-    m_showCsgoGCServersOnly = config.GetNumber("show_csgo_gc_servers_only", m_showCsgoGCServersOnly);
+    m_showCsgoGCServersOnly = config.GetNumber("show_csgo2012_servers_only", m_showCsgoGCServersOnly);
 
     const KeyValue *ranks = config.GetSubkey("ranks");
     if (ranks)
