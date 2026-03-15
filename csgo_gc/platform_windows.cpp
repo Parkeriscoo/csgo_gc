@@ -10,8 +10,6 @@ static ConColorMsg_t s_ConColorMsg;
 
 void Initialize()
 {
-    // remove the old log file
-    DeleteFileA("gc_log.txt");
 
     HMODULE tier0 = GetModuleHandleW(L"tier0.dll");
     if (tier0)
@@ -34,10 +32,6 @@ void Print(const char *format, ...)
         uint8_t color[4] = { 0, 255, 128, 255 };
         s_ConColorMsg(color, "[GC] %s", buffer);
     }
-
-    FILE *f = fopen("gc_log.txt", "a");
-    fprintf(f, "%s", buffer);
-    fclose(f);
 }
 
 void Error(const char *format, ...)
