@@ -789,7 +789,7 @@ public:
         if (m_original->InitGameServer(unIP, usGamePort, usQueryPort, unFlags, nGameAppId, pchVersionString))
         {
             // add the csgo_gc gametag
-            m_original->SetGameTags("csgo_gc");
+            m_original->SetGameTags("csgo2012");
             return true;
         }
 
@@ -902,11 +902,11 @@ public:
 
         if (tags.size())
         {
-            tags.append(",csgo_gc");
+            tags.append(",csgo2012");
         }
         else
         {
-            tags.append("csgo_gc");
+            tags.append("csgo2012");
         }
 
         m_original->SetGameTags(tags.c_str());
@@ -1236,7 +1236,7 @@ public:
 
         if (GetConfig().ShowCsgoGCServersOnly())
         {
-            buffer.push_back({ "gametagsand", "csgo_gc" });
+            buffer.push_back({ "gametagsand", "csgo2012" });
         }
 
         return buffer.data();
